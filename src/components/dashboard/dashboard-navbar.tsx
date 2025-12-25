@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/breadcrumb"
 import Link from "next/link"
 import { ModeToggle } from "@/components/mode-toggle"
+import { NotificationPopover } from "@/components/dashboard/notification-popover"
 
 export function DashboardNavbar() {
     return (
@@ -47,10 +48,12 @@ export function DashboardNavbar() {
                             <span className="absolute top-2 right-2 h-2 w-2 bg-red-500 rounded-full animate-pulse" />
                         </Button>
                     </Link>
-                    <Button variant="ghost" size="icon" className="relative">
-                        <Bell className="h-5 w-5" />
-                        <span className="absolute top-2 right-2 h-2 w-2 bg-blue-500 rounded-full" />
-                    </Button>
+                    <NotificationPopover>
+                        <Button variant="ghost" size="icon" className="relative">
+                            <Bell className="h-5 w-5" />
+                            <span className="absolute top-2 right-2 h-2 w-2 bg-blue-500 rounded-full" />
+                        </Button>
+                    </NotificationPopover>
                     <ModeToggle />
                 </div>
             </div>
