@@ -82,7 +82,7 @@ export default function PermissionsPage() {
     const categories = Array.from(new Set(permissions.map(p => p.category)))
 
     return (
-        <div className="p-6 space-y-8 animate-in fade-in duration-500 max-w-5xl mx-auto">
+        <div className="p-6 space-y-8 animate-in fade-in duration-500 w-full">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
                 <div className="space-y-1">
                     <div className="flex items-center gap-2">

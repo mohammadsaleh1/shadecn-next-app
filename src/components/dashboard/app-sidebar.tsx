@@ -75,6 +75,7 @@ import {
 } from "@/components/ui/sidebar"
 import { useAuthStore } from "@/store/use-auth-store"
 import { useRouter } from "next/navigation"
+import Link from "next/link"
 
 const data = {
     user: {
@@ -306,10 +307,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                                 </DropdownMenuGroup>
                                 <DropdownMenuSeparator />
                                 <DropdownMenuGroup>
-                                    <DropdownMenuItem>
-                                        <User className="mr-2 h-4 w-4" />
-                                        Account
-                                    </DropdownMenuItem>
+                                    <Link href="/dashboard/account" className="w-full h-full flex items-center">
+                                        <DropdownMenuItem className="w-full cursor-pointer">
+                                            <User className="mr-2 h-4 w-4" />
+                                            Account
+                                        </DropdownMenuItem>
+                                    </Link>
                                     <DropdownMenuItem>
                                         <CreditCard className="mr-2 h-4 w-4" />
                                         Billing
