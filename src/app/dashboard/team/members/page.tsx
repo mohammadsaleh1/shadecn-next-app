@@ -15,6 +15,7 @@ import {
     Clock,
     XCircle
 } from "lucide-react"
+import Link from "next/link"
 import { useTeamStore, TeamMember, TeamRole, TeamStatus } from "@/store/use-team-store"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -182,20 +183,20 @@ export default function TeamPage() {
                         {filteredMembers.map((member) => (
                             <TableRow key={member.id} className="group hover:bg-muted/30 transition-colors">
                                 <TableCell>
-                                    <div className="flex items-center gap-3">
-                                        <Avatar className="h-10 w-10 border-2 border-background shadow-sm">
+                                    <Link href={`/dashboard/team/members/${member.id}`} className="flex items-center gap-3 group/member">
+                                        <Avatar className="h-10 w-10 border-2 border-background shadow-sm transition-transform group-hover/member:scale-105">
                                             <AvatarImage src={member.avatar} />
                                             <AvatarFallback className="bg-primary/10 text-primary font-medium">
                                                 {member.name.charAt(0)}
                                             </AvatarFallback>
                                         </Avatar>
                                         <div className="flex flex-col">
-                                            <span className="font-semibold text-sm group-hover:text-primary transition-colors">{member.name}</span>
+                                            <span className="font-semibold text-sm group-hover/member:text-primary transition-colors underline-offset-4 group-hover/member:underline">{member.name}</span>
                                             <span className="text-xs text-muted-foreground flex items-center gap-1">
                                                 <Mail className="h-3 w-3" /> {member.email}
                                             </span>
                                         </div>
-                                    </div>
+                                    </Link>
                                 </TableCell>
                                 <TableCell>
                                     <Badge variant="outline" className={cn("font-medium px-2.5 py-0.5", getRoleBadgeColor(member.role))}>
