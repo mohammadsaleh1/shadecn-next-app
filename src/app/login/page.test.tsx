@@ -50,7 +50,7 @@ describe('LoginPage', () => {
         render(<LoginPage />);
 
         // Check for title
-        expect(screen.getByText('Signtes in')).toBeDefined()
+        expect(screen.getByText('Sign in')).toBeDefined()
 
         // Check for inputs
         expect(screen.getByLabelText(/email/i)).toBeDefined()
